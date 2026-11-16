@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>@LOWACAL_APP_ID@</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <name>Lowacal</name>
+  <summary>Calendar for iCloud, Google and CalDAV</summary>
+  <summary xml:lang="uk">Календар для iCloud, Google і CalDAV</summary>
+
+  <developer id="io.github.detcom_gh">
+    <name>Detcom</name>
+  </developer>
+
+  <description>
+    <p>
+      A minimal desktop calendar that syncs with iCloud, Google Calendar and any CalDAV server
+      (Nextcloud, Fastmail, Baïkal, Radicale and others) and keeps working after you
+      close the window: it stays in the system tray and reminds you about upcoming events.
+    </p>
+    <p xml:lang="uk">
+      Мінімалістичний календар для робочого столу, що синхронізується з iCloud, Google Календарем і будь-яким
+      CalDAV-сервером (Nextcloud, Fastmail, Baïkal, Radicale та іншими) і продовжує працювати
+      після закриття вікна: лишається в системному треї й нагадує про майбутні події.
+    </p>
+    <ul>
+      <li>Month, week and day views</li>
+      <li xml:lang="uk">Вигляди місяця, тижня й дня</li>
+      <li>Create, edit and delete events, synced back to your server</li>
+      <li xml:lang="uk">Створення, редагування й видалення подій із синхронізацією на сервер</li>
+      <li>Two configurable reminders for every event</li>
+      <li xml:lang="uk">Два налаштовувані нагадування для кожної події</li>
+      <li>Add accounts in a few clicks; the server address is discovered automatically</li>
+      <li xml:lang="uk">Додавання акаунта в кілька кліків, адреса сервера знаходиться автоматично</li>
+      <li>Passwords are kept in the system keyring, never in plain files</li>
+      <li xml:lang="uk">Паролі зберігаються в системному сховищі, а не у звичайних файлах</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">@LOWACAL_APP_ID@.desktop</launchable>
+
+  <url type="homepage">https://github.com/Detcom-GH/lowacal</url>
+  <url type="bugtracker">https://github.com/Detcom-GH/lowacal/issues</url>
+  <url type="vcs-browser">https://github.com/Detcom-GH/lowacal</url>
+
+  <content_rating type="oars-1.1"/>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#a6dcf6</color>
+    <color type="primary" scheme_preference="dark">#1b4d69</color>
+  </branding>
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">768</display_length>
+  </requires>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/Detcom-GH/lowacal/main/screenshots/month.png</image>
+      <caption>Month view</caption>
+      <caption xml:lang="uk">Вигляд місяця</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/Detcom-GH/lowacal/main/screenshots/week.png</image>
+      <caption>Week view</caption>
+      <caption xml:lang="uk">Вигляд тижня</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/Detcom-GH/lowacal/main/screenshots/add-account.png</image>
+      <caption>Adding an account</caption>
+      <caption xml:lang="uk">Додавання акаунта</caption>
+    </screenshot>
+  </screenshots>
+
+  <releases>
+    <release version="@PROJECT_VERSION@" date="2026-10-29">
+      <description>
+        <p>First release.</p>
+        <p xml:lang="uk">Перший випуск.</p>
+      </description>
+    </release>
+  </releases>
+</component>

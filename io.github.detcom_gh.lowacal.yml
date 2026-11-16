@@ -1,0 +1,71 @@
+id: io.github.detcom_gh.lowacal
+# KDE runtime: ships Qt 6 and KDE Frameworks, Kirigami included.
+# 6.10 is what current KDE apps on Flathub (NeoChat, Dolphin, Tokodon) build against.
+runtime: org.kde.Platform
+runtime-version: '6.10'
+sdk: org.kde.Sdk
+command: lowacal
+
+finish-args:
+  # Windows: Wayland first, X11 only as a fallback.
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
+  # CalDAV servers.
+  - --share=network
+  # Reminder notifications (sent straight to the notification daemon).
+  - --talk-name=org.freedesktop.Notifications
+  # The tray icon.
+  - --talk-name=org.kde.StatusNotifierWatcher
+  # Account passwords: KWallet on Plasma, any Secret Service provider elsewhere.
+  - --talk-name=org.freedesktop.secrets
+  - --talk-name=org.kde.kwalletd5
+  - --talk-name=org.kde.kwalletd6
+  # Not needed, deliberately absent: home/file access, audio, devices.
+  # Launch-at-login uses the Background portal, which needs no permission.
+
+cleanup:
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
+  - '*.a'
+
+modules:
+  # Not part of the KDE runtime. Same source and checksum as NeoChat's
+  # Flathub manifest; the checksum was also verified independently.
+  - name: qtkeychain
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_INSTALL_LIBDIR=/app/lib
+      - -DLIB_INSTALL_DIR=/app/lib
+      - -DBUILD_TRANSLATIONS=NO
+      - -DBUILD_WITH_QT6=ON
+    sources:
+      - type: archive
+        url: https://github.com/frankosterfeld/qtkeychain/archive/0.15.0.tar.gz
+        sha256: f4254dc8f0933b06d90672d683eab08ef770acd8336e44dfa030ce041dc2ca22
+
+  - name: lowacal
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      # Google Calendar: OAuth client of type "Desktop app" (README, "Google").
+      # Without these two the app builds, with Google shown as unavailable.
+      # - -DLOWACAL_GOOGLE_CLIENT_ID=XXXXXXXX.apps.googleusercontent.com
+      # - -DLOWACAL_GOOGLE_CLIENT_SECRET=XXXXXXXX
+    sources:
+      # Local build from this checkout. For a Flathub submission this
+      # becomes a git source pinned to a release tag + commit:
+      #   - type: git
+      #     url: https://github.com/Detcom-GH/lowacal.git
+      #     tag: v0.1.0
+      #     commit: <full commit hash>
+      - type: dir
+        path: .
+        skip:
+          - build
+          - build-flatpak
+          - .flatpak-builder
+          - repo

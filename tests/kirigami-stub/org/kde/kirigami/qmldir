@@ -1,0 +1,9 @@
+module org.kde.kirigami
+singleton Theme 1.0 Theme.qml
+singleton Units 1.0 Units.qml
+Heading 1.0 Heading.qml
+Separator 1.0 Separator.qml
+PlaceholderMessage 1.0 PlaceholderMessage.qml
+Action 1.0 Action.qml
+Icon 1.0 Icon.qml
+PasswordField 1.0 PasswordField.qml

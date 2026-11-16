@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Lowacal
+GenericName=Calendar
+GenericName[uk]=Календар
+Comment=Calendar with iCloud and CalDAV sync that keeps running in the background
+Comment[uk]=Календар із синхронізацією iCloud і CalDAV, що працює у фоні
+Keywords=calendar;events;reminders;icloud;caldav;nextcloud;
+Keywords[uk]=календар;події;нагадування;icloud;caldav;nextcloud;
+Exec=lowacal
+Icon=@LOWACAL_APP_ID@
+Terminal=false
+Categories=Office;Calendar;Qt;KDE;
+StartupNotify=true
